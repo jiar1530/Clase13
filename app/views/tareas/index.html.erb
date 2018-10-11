@@ -1,0 +1,21 @@
+<h1>Mis tareas</h1>
+
+<table class="table table-hover table-striped">
+	<thead>
+		<th>Tarea</th>
+		<th>Editar</th>
+		<th>Eliminar</th>
+	</thead>
+	<tbody>
+	<% @tareas.each do |tarea| %>
+		<tr>
+			<td><%= link_to tarea.titulo, {controller: "tareas", action: "show", id: tarea.id} %></td>
+			<td><%= link_to "Editar", {controller: "tareas", action: "edit", id: tarea.id}, class: "btn btn-warning"%></td>
+			<td>
+				<%= link_to "Eliminar", {controller: "tareas", action: "destroy", id: tarea.id}, method: "delete", class: "btn btn-danger", data:{confirm: "Quieres eliminar esta tarea?"}%>
+
+				</td>						
+		</tr>
+	<% end %>
+	</tbody>
+</table>
